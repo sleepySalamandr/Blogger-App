@@ -1,0 +1,8 @@
+<h1> <%= "#{@user.blog_title}" %></h1>
+<h3><%= "#{@user.about_me}" %></h3>
+
+<!-- Create a loop to loop through each article and display title, created date and 3 lines and thumbnail image -->
+
+<% @user.articles.each do |article|%>
+<h4><%= link_to "#{article.title}", article%></h4>
+<% end %>

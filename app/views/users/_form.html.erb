@@ -1,0 +1,15 @@
+<%= form_for @article do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title, :required => true, :autofocus => true %>
+
+<%= f.label :topic %>
+<%= f.text_field :title, :required => true, :autofocus => true %>
+
+<%= f.label :body %>
+<%= f.text_field :body, :required => true, :autofocus => true %>
+
+<%= f.label :image %>
+<%= f.url_field :body, :autofocus => true %>
+
+<%= f.submit %>
+<% end %>

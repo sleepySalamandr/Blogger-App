@@ -1,0 +1,10 @@
+<h1><%= @article.title %></h1>
+<p>By <%= @article.user.username %></p>
+<h6><%= @article.topic %></h6>
+<%= image_tag @article.image, :class => 'feature', :alt => @article.title if @article.image.present?%>
+<p><%= @article.body %></p>
+
+<div class="controls">
+  <%= link_to "Edit", edit_article_path(@article) %>
+  <%= link_to "Delete", @article, :method => 'delete', :data => { :confrim => 'Are you sure?' } %>
+</div>
