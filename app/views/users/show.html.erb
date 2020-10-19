@@ -6,3 +6,15 @@
 <% @user.articles.each do |article|%>
 <h4><%= link_to "#{article.title}", article%></h4>
 <% end %>
+
+<section id="all-links">
+
+    <% if current_user.followees.include?(@user) %>
+        <h5><%= button_to "Unfollow", unfollow_user_path, method: "POST" %></h5>
+    <% else %>
+        <h5><%= button_to "Follow", follow_user_path, method: "POST"  %></h5>
+    <% end%>
+    <%= link_to 'Followers', follow_user_path(@user) %>
+    <%= link_to 'Following', unfollow_user_path(@user) %>
+    <br>
+</section>
