@@ -40,8 +40,10 @@ def update
 end
 
 def destroy
-  article = Article.find params[:id]
-  article.destroy
+    article = Article.find params[:id]
+  if (@current_user.id) == article.user_id
+    article.destroy
+end
   redirect_to articles_path
 end
 
