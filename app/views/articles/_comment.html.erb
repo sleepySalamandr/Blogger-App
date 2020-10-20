@@ -1,0 +1,14 @@
+
+
+
+<%  @article.comments.each do |comment| %>
+<p>
+<%= "#{comment.user.username} says: #{comment.body}" %>
+<%= link_to "Delete", @article.comments.comment.id :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
+</p>
+<div class="controls">
+
+
+
+</div>
+<% end %>

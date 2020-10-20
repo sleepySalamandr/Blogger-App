@@ -9,6 +9,8 @@
   <%= link_to "Delete", @article, :method => 'delete', :data => { :confrim => 'Are you sure?' } %>
 </div>
 
+<%= @article.comments.first.body %>
+<%= render :partial => 'comment', :collection => @article.comments %>
 <div class="comment-form", method>
 <h4>Comments</h4>
 <%= render :partial => 'articles/comments_form' %>
