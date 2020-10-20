@@ -27,6 +27,7 @@ end
 
   def show
     @article = Article.find params[:id]
+    @comment = Comment.new(:article => @article)
   end
 
 def edit

@@ -8,3 +8,8 @@
   <%= link_to "Edit", edit_article_path(@article) %>
   <%= link_to "Delete", @article, :method => 'delete', :data => { :confrim => 'Are you sure?' } %>
 </div>
+
+<div class="comment-form", method>
+<h4>Comments</h4>
+<%= render :partial => 'articles/comments_form' %>
+</div>
