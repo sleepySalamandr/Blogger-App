@@ -1,0 +1,15 @@
+
+
+
+<%  @article.comments.each do |comment| %>
+<p>
+<%= "#{comment.user.username} says: #{comment.body}" %>
+</p>
+<%# <%= link_to 'Destroy Comment', [comment.article, comment],
+               :confirm => 'Are you sure?',
+               :method => :delete %> %>
+               <%= link_to 'Destroy Comment',
+                             article_comments_path(comment),
+                             method: :delete,
+                             data: { confirm: 'Are you sure?' } %>
+<% end %>
