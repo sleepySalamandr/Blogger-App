@@ -1,13 +1,32 @@
-.thumb {
+body {
+  color:  #343a40;
+}
+
+
+/* .thumb {
   max-width: 25%;
+} */
+
+a:hover {
+text-decoration: none;
+  color:  #343a40;
+}
+a:active {
+text-decoration: none;
+}
+
+a {
+  color:  #343a40;
 }
 
 h1, h2, h3, h4 {
   font-family: 'Playfair Display', serif;
 }
 
-a {
-    color: #007bff;
-    text-decoration: none;
-    background-color: transparent;
+.all-links {
+  display: inline-block;
+}
+
+.btn {
+  display: inline;
 }
