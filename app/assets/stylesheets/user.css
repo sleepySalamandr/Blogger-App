@@ -1,11 +1,16 @@
 body {
   color:  #343a40;
-}
+  font-family: 'Noto Serif TC', serif;
 
+}
 
 /* .thumb {
   max-width: 25%;
 } */
+
+img {
+  max-width: 25%;
+}
 
 a:hover {
 text-decoration: none;
@@ -25,6 +30,10 @@ h1, h2, h3, h4 {
 
 .all-links {
   display: inline-block;
+}
+
+.strong {
+  font-weight: bold;
 }
 
 .btn {

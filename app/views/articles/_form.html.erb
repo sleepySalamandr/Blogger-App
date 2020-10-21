@@ -1,15 +1,17 @@
+<div class="form-group">
 <%= form_for @article do |f| %>
 <%= f.label :title %>
-<%= f.text_field :title, :required => true, :autofocus => true %>
+<%= f.text_field :title, :required => true, :autofocus => true, :class => "form-control", :id => "exampleFormControlInput1" %>
 
 <%= f.label :topic %>
-<%= f.text_field :topic, :required => true, :autofocus => true %>
+<%= f.text_field :topic, :required => true, :autofocus => true, :class => "form-control", :id => "exampleFormControlInput1" %>
 
 <%= f.label :body %>
-<%= f.text_field :body, :required => true, :autofocus => true %>
+<%= f.text_field :body, :required => true, :autofocus => true, :class => "form-control form-control-lg", :id => "exampleFormControlTextarea1"  %>
 
 <%= f.label :image %>
-<%= f.url_field :image, :autofocus => true %>
+<%= f.url_field :image, :autofocus => true, :class => "form-control", :id => "exampleFormControlInput1" %>
 
-<%= f.submit%>
+<%= f.submit :class => "btn btn-success mt-4 px-2"%>
 <% end %>
+</div>

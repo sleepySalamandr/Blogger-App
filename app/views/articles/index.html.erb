@@ -1,14 +1,14 @@
-<h1>Blog</h1>
-<h3></h3>
+<h1 class="px-10 mt-4"><a href="#">I.</a></h1>
+<div class="container">
+  <div class="row mb-2">
+    <% @a.first.each do |article| %>
+      <div class="col-md-6">
+      <!-- <div class="card"> -->
+        <%= image_tag article.image, :class => "text-center" if article.image.present?%>
+        <h4><%= link_to "#{article.title}", article%></h4>
+        <p>By <%= "#{article.user.username}" %></p>
+      </div>
+    <% end %>
 
-
-
-
-
-
-
-
-<% @a.first.each do |article| %>
-<h4><%= link_to "#{article.title}", article%></h4>
-<p><%= "#{article.user_id}" %></p>
-<% end %>
+  </div>
+</div>
