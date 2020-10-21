@@ -13,12 +13,17 @@ def create
 end
 
 def index
-  # @blog_title = User.find params(:blog_title)
-  # @user = User.find params[:id]
-  # @user_id = Article.find params[:user_id]
-  # user_articles = Article.find params[:id]
   # @articles = user_articles.user_id
   @articles = Article.all
+
+  @followees_ids = current_user.followees.ids
+
+  # @followees_articles = current_user.followees.articles
+
+
+
+# for each user current_user.followees.ids
+
 end
 
 def home

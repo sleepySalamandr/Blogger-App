@@ -5,11 +5,9 @@
 <p>
 <%= "#{comment.user.username} says: #{comment.body}" %>
 </p>
-<%# <%= link_to 'Destroy Comment', [comment.article, comment],
-               :confirm => 'Are you sure?',
-               :method => :delete %> %>
-               <%= link_to 'Destroy Comment',
-                             article_comments_path(comment),
+
+               <%= link_to 'Delete Comment',
+                             article_comment_path(@article, comment),
                              method: :delete,
                              data: { confirm: 'Are you sure?' } %>
 <% end %>
