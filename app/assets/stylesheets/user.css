@@ -3,6 +3,10 @@ body {
   font-family: 'Noto Serif TC', serif;
 }
 
+.yield-container {
+  border-top: 1px solid rgba(230, 230, 230, 1);
+}
+
 /* .thumb {
   max-width: 25%;
 } */
