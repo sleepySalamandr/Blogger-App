@@ -4,11 +4,13 @@
   <div class="row mb-2">
     <% if current_user.followees.present? %>
     <%   current_user.followees.each do |user| %>
-    <%    user.articles.each do |article| %>
+
+    <%    user.articles.order("created_at DESC").each do |article| %>
       <div class="col-md-6">
         <%= image_tag article.image, :class => "text-center" if article.image.present?%>
         <h4><%= link_to "#{article.title}", article%></h4>
         <p>By <%= link_to "#{article.user.username}", user_path(article.user.id)%></p>
+        <p><%= "#{article.created_at.strftime("%b %d, %Y")}" %></p>
         <p><%= truncate "#{article.body}", length: 75 %></p>
       </div>
     <% end %>

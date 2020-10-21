@@ -4,6 +4,7 @@
 By <h6 class="font-weight-bold"><%= link_to @article.user.username, user_path(@article.user.id) %></h6>
 <div>
 <h6><%= @article.topic %></h6>
+    <p><%= @article.created_at.strftime("%b %d, %Y") %></p>
 </div>
 </div>
   <div class="row p-3">
