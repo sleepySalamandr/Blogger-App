@@ -1,8 +1,9 @@
-
+<div class="form-group">
 <%= form_for [ @article, @comment ] do |f| %>
 <p>
-<%= f.label :body %>
-<%= f.text_field :body, :required => true %>
+<%= f.label "text" %>
+<%= f.text_field :body, :required => true, :class => "form-control exampleFormControlInput1" %>
 </p>
-<%= f.submit %>
+<%= f.submit :class => "btn btn-success mt-4 px-2"%>
 <% end %>
+</div>

@@ -7,6 +7,7 @@
         <%= image_tag article.image, :class => "text-center" if article.image.present?%>
         <h4><%= link_to "#{article.title}", article%></h4>
         <p>By <%= link_to "#{article.user.username}", user_path(article.user.id)%></p>
+        <p><%= truncate "#{article.body}", length: 75 %></p>
       </div>
     <% end %>
 <% end %>
