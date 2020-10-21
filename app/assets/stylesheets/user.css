@@ -12,6 +12,10 @@ img {
   max-width: 25%;
 }
 
+.feature {
+  max-width: 100%;
+}
+
 a:hover {
 text-decoration: none;
   color:  #343a40;

@@ -1,14 +1,14 @@
-<h1 class="px-10 mt-4"><a href="#">I.</a></h1>
+<h1 class="px-2 mb-5"><a href="#">I.</a></h1>
 <div class="container">
   <div class="row mb-2">
-    <% @a.first.each do |article| %>
+    <% if @followees_ids.present? %>
+    <%  @a.first.each do |article| %>
       <div class="col-md-6">
-      <!-- <div class="card"> -->
         <%= image_tag article.image, :class => "text-center" if article.image.present?%>
         <h4><%= link_to "#{article.title}", article%></h4>
-        <p>By <%= "#{article.user.username}" %></p>
+        <p>By <%= link_to "#{article.user.username}", user_path(article.user.id)%></p>
       </div>
     <% end %>
-
+<% end %>
   </div>
 </div>
