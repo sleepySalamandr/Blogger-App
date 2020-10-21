@@ -6,11 +6,8 @@
 
 
 
-<% @followee_articles.each do |article| %>
-<p><%= article.title %>
-</p>
-<% end %>
+
 
 <% @a.first.each do |article| %>
-<%= article.title %>
+<h4><%= link_to "#{article.title}", article%></h4>
 <% end %>
