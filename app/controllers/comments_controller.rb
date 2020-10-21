@@ -18,27 +18,6 @@ class CommentsController < ApplicationController
     redirect_to(@comment.article)
   end
 
-  # def create
-  #   @article = Article.find(params[:id])
-  #   @comment = @article.comments.create(comment_params)
-  #   @comment.user = current_user
-  #   redirect_to(@comment.article)
-  #   # raise "hell"
-  # end
-
-  # def destroy
-  #   @article = Article.find(params[:article_id])
-  #   @comment = @article.comments.find(params[:id])
-  #   # @comment = Comment.find(params[:id])
-  #
-  #   if @comment.user_id == @current_user_id
-  #     @comment.destroy
-  #   else
-  #     flash[:notice] = "Comment not owned by user #{@comment.errors}"
-  #  end
-  #  redirect_to(@comment.article)
-  # end
-
   def destroy
       @article = Article.find params[:article_id]
       @comment = @article.comments.find(params[:id])

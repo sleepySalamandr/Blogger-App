@@ -1,13 +1,21 @@
-<h1> <%= "#{@user.blog_title}" %></h1>
+<h1><a href="#" class="blog-header-logo text-dark center"> <%= "#{@user.blog_title}" %></a></h1>
 <h3><%= "#{@user.about_me}" %></h3>
 
 <!-- Create a loop to loop through each article and display title, created date and 3 lines and thumbnail image -->
-
+<div class="row row-cols-3">
 <% @user.articles.each do |article|%>
-<%= image_tag article.image, :class => "thumb" if article.image.present?%>
+<!-- <div class="col-sm-6"> -->
+<div class="card">
+  <div class="col">
+<%= image_tag article.image, :class => "card-img-top" if article.image.present?%>
+    <div class="card-body">
 <h4><%= link_to "#{article.title}", article%></h4>
 <p><%= truncate "#{article.body}", length: 100 %></p>
+</div>
+</div>
+</div>
 <% end %>
+</div>
 
 <section id="all-links">
 
