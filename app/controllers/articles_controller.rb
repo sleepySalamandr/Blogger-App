@@ -11,16 +11,19 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Article created"
     redirect_to article_path(article.id)
   end
+  #
+  # def index
+  #   @articles = Article.all
+  #   @a = []
+  #   @followees_ids = current_user.followees.ids
+  #     @followees_ids.each do |fi|
+  #       @a.push(User.find(fi).articles)
+  #       @followee_articles = User.find(fi).articles
+  #   end
+  # end
 
-  def index
-    @articles = Article.all
-    @a = []
-    @followees_ids = current_user.followees.ids
-      @followees_ids.each do |fi|
-        @a.push(User.find(fi).articles)
-        @followee_articles = User.find(fi).articles
-    end
-  end
+def index
+end
 
   def show
     @article = Article.find params[:id]

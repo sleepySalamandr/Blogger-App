@@ -1,8 +1,10 @@
+
 <h1 class="px-2 mb-5"><a href="#">I.</a></h1>
 <div class="container ">
   <div class="row mb-2">
-    <% if @followees_ids.present? %>
-    <%  @a.first.each do |article| %>
+    <% if current_user.followees.present? %>
+    <%   current_user.followees.each do |user| %>
+    <%    user.articles.each do |article| %>
       <div class="col-md-6">
         <%= image_tag article.image, :class => "text-center" if article.image.present?%>
         <h4><%= link_to "#{article.title}", article%></h4>
@@ -10,6 +12,7 @@
         <p><%= truncate "#{article.body}", length: 75 %></p>
       </div>
     <% end %>
+<% end %>
 <% end %>
   </div>
 </div>
