@@ -6,7 +6,7 @@
 
 
 
-<% @followees_ids.each do |fi| %>
-<%=  @followees_articles = Article.find_by_user_id(fi) %>
-<%= @followees_articles.title %>
+<% @followee_articles.each do |article| %>
+<p><%= article.title %>
+</p>
 <% end %>
