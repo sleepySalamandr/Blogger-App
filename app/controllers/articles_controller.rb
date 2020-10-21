@@ -15,11 +15,13 @@ end
 def index
   # @articles = user_articles.user_id
   @articles = Article.all
-
+  @a = []
   @followees_ids = current_user.followees.ids
   @followees_ids.each do |fi|
-    @followee_id = User.find fi
-    @followee_articles = @followee_id.articles
+    @a.push(User.find(fi).articles)
+  @followee_articles = User.find(fi).articles
+  # @followee_articles = @followee_id.articles
+
   end
   # @followees_articles = current_user.followees.articles
 
