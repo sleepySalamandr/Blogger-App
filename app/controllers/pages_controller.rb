@@ -1,7 +1,5 @@
 class PagesController < ApplicationController
   def home
-    # @user = User.find params[:id]
-    # @article = Article.all
     @user = current_user
   end
 

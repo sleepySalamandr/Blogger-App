@@ -1,35 +1,30 @@
 <div class="container">
   <div class="mb-3">
-<h1><%= @article.title %></h1>
-By <h6 class="font-weight-bold"><%= link_to @article.user.username, user_path(@article.user.id) %></h6>
-<div>
-<h6><%= @article.topic %></h6>
-    <p><%= @article.created_at.strftime("%b %d, %Y") %></p>
-</div>
-</div>
-  <div class="row p-3">
-<%= image_tag @article.image, :class => ' feature mb-3', :alt => @article.title if @article.image.present?%>
-<p><%= @article.body %></p>
-
-<div class="controls">
-
-<div class="d-inline-block">
-  <%= link_to "Edit", edit_article_path(@article), :class => " btn btn-dark"%>
-  </div>
-  <div class="d-inline-block">
-  <%= link_to "Delete", @article, :method => 'delete', :data => { :confirm => 'Are you sure?' }, :class => "btn btn-outline-secondary" %>
-  </div>
-</div>
-</div>
-
-
-<div class="comment-container mt-3">
-  <div class="row d-flex ">
-    <div class="col-lg-6">
-<%= render :partial => 'comments/comment' %>
-
-<%= render 'comments/form' %>
+    <h1><%= @article.title %></h1>
+    By <h6 class="font-weight-bold"><%= link_to @article.user.username, user_path(@article.user.id) %></h6>
+    <div>
+      <h6><%= @article.topic %></h6>
+      <p><%= @article.created_at.strftime("%b %d, %Y") %></p>
     </div>
   </div>
-</div>
+  <div class="row p-3">
+    <%= image_tag @article.image, :class => ' feature mb-3', :alt => @article.title if @article.image.present?%>
+    <p><%= @article.body %></p>
+    <div class="controls">
+      <div class="d-inline-block">
+        <%= link_to "Edit", edit_article_path(@article), :class => " btn btn-dark"%>
+      </div>
+      <div class="d-inline-block">
+        <%= link_to "Delete", @article, :method => 'delete', :data => { :confirm => 'Are you sure?' }, :class => "btn btn-outline-secondary" %>
+      </div>
+    </div>
+  </div>
+  <div class="comment-container mt-3">
+    <div class="row d-flex ">
+      <div class="col-lg-6">
+        <%= render :partial => 'comments/comment' %>
+        <%= render 'comments/form' %>
+      </div>
+    </div>
+  </div>
 </div>

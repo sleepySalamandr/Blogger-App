@@ -3,20 +3,27 @@
 <div class="container ">
   <div class="card-columns">
     <% if current_user.followees.present? %>
-    <% current_user.followees.each do |user| %>
-
-    <%    user.articles.each do |article| %>
-      <div class="card border-none">
-          <div class="col-mb-4 p-2">
-            <%= image_tag article.image, :class => "feed-img card-img-top text-center" if article.image.present?%>
-            <h4 class="h4 card-title pb-4"><%= link_to "#{article.title}", article%></h4>
-            <p class="h6 card-text pb-2"><%= truncate "#{article.body}", length: 75 %></p>
-            <p class="h6 card-text">By <%= link_to "#{article.user.username}", user_path(article.user.id)%></p>
-            <p class="h6 card-text"><%= "#{article.created_at.strftime("%b %d, %Y")}" %></p>
-          </div>
-        </div>
-    <% end %>
-    <% end %>
+      <% current_user.followees.each do |user| %>
+        <% user.articles.each do |article| %>
+          <div class="card border-none">
+              <div class="col-mb-4 p-2">
+                <%= image_tag article.image, :class => "feed-img card-img-top text-center" if article.image.present?%>
+                <h4 class="h4 card-title pb-4">
+                  <%= link_to "#{article.title}", article%>
+                </h4>
+                <p class="h6 card-text pb-2">
+                  <%= truncate "#{article.body}", length: 75 %>
+                </p>
+                <p class="h6 card-text">
+                  By <%= link_to "#{article.user.username}", user_path(article.user.id)%>
+                </p>
+                <p class="h6 card-text">
+                  <%= "#{article.created_at.strftime("%b %d, %Y")}" %>
+                </p>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>

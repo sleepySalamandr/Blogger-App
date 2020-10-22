@@ -11,20 +11,9 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Article created"
     redirect_to article_path(article.id)
   end
-  #
-  # def index
-  #   @articles = Article.all
-  #   @a = []
-  #   @followees_ids = current_user.followees.ids
-  #     @followees_ids.each do |fi|
-  #       @a.push(User.find(fi).articles)
-  #       @followee_articles = User.find(fi).articles
-  #   end
-  # end
 
-def index
-
-end
+  def index
+  end
 
   def show
     @article = Article.find params[:id]
@@ -43,10 +32,10 @@ end
 
   def destroy
       article = Article.find params[:id]
-    if (@current_user.id) == article.user_id
-      article.comments.destroy_all
-      article.destroy
-    end
+        if (@current_user.id) == article.user_id
+          article.comments.destroy_all
+          article.destroy
+        end
     redirect_to articles_path
   end
 

@@ -1,12 +1,13 @@
 <div class="form-group yield-container mt-2">
   <h5 class="h5 mt-2">Add A Comment</h5>
-<%= form_for [ @article, @comment ] do |f| %>
-<p class=" p container">
-<%= f.label "text" %>
-<%= f.text_field :body, :required => true, :class => "px-0 form-control exampleFormControlInput1" %>
-</p>
-<span class="d-flex justify-content-end mr-2">
-  <%= f.submit :class => "btn btn-success mr-2 px-2"%>
-</span>
-<% end %>
+
+  <%= form_for [ @article, @comment ] do |f| %>
+    <p class=" p container">
+      <%= f.label "text" %>
+      <%= f.text_field :body, :required => true, :class => "px-0 form-control exampleFormControlInput1" %>
+    </p>
+    <span class="d-flex justify-content-end mr-2">
+      <%= f.submit :class => "btn btn-success mr-2 px-2"%>
+    </span>
+  <% end %>
 </div>

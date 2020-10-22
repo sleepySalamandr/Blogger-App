@@ -1,30 +1,29 @@
 <body class="home">
 
+  <div class="container">
+    <div class="mb-2 mt-2">
+      <p class="h1">Welcome to Informative.
+      </p>
+      <p class="h6">An open article sharing platform where users can share their voice on any topic, access dynamic content and connect with people with shared interests.</p>
 
-<div class="container">
-  <div class="mb-2 mt-2">
-<p class="h1">Welcome to Informative.
-</p>
-<p class="h6">An open article sharing platform where users can share their voice on any topic, access dynamic content and connect with people with shared interests.</p>
-
-<% if current_user.present? %>
-<p class="h6">You are currently logged in as <strong><%= current_user.email %></strong></p>
-<% end %>
-</div>
-</div>
-<div class="container-box">
-<div class="card-columns p-2 mt-3">
-<%  Article.all.order("created_at DESC").each do |article| %>
-<div class="col mb-4">
-  <div class="card border-none p-2">
-    <%= image_tag article.image, :class => "card feed-img centre" if article.image.present?%>
-    <p class="h4 pb-2"><%= link_to "#{article.title}", article%></p>
-    <p class="h6 pb-4"><%= truncate "#{article.body}", length: 75 %></p>
-    <p class="h6">By <%= link_to "#{article.user.username}", user_path(article.user.id)%></p>
-    <p class="h6">Posted<%= " #{article.created_at.strftime("%b %d, %Y")}" %></p>
+      <% if current_user.present? %>
+        <p class="h6">You are currently logged in as <strong><%= current_user.email %></strong></p>
+      <% end %>
+    </div>
   </div>
+  <div class="container-box">
+    <div class="card-columns p-2 mt-3">
+      <%  Article.all.order("created_at DESC").each do |article| %>
+        <div class="col mb-4">
+          <div class="card border-none p-2">
+            <%= image_tag article.image, :class => "card feed-img centre" if article.image.present?%>
+            <p class="h4 pb-2"><%= link_to "#{article.title}", article%></p>
+            <p class="h6 pb-4"><%= truncate "#{article.body}", length: 75 %></p>
+            <p class="h6">By <%= link_to "#{article.user.username}", user_path(article.user.id)%></p>
+            <p class="h6">Posted<%= " #{article.created_at.strftime("%b %d, %Y")}" %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
-</div>
-</div>
 </body>
