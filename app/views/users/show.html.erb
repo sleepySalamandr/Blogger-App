@@ -2,7 +2,7 @@
 
 <!-- <div class="all-links"> -->
   <h1><a href="#" class="blog-header-logo text-dark center"> <%= "#{@user.blog_title}" %></a></h1>
-  <h3><%= "#{@user.about_me}" %></h3>
+  <h3 class="text-dark"><%= "#{@user.about_me}" %></h3>
   <!-- <div class="mt-5 mb-2 mr-5 d-flex justify-content-end"> -->
     <% if current_user.followees.include?(@user) %>
 
