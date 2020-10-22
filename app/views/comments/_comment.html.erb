@@ -1,15 +1,17 @@
-      <h4>Latest Comments</h4>
+      <h4 class="mt-2">Latest Comments</h4>
         <%  @article.comments.each do |comment| %>
-          <div class="d-flex flex-row p-2">
+          <div class="d-flex flex-row px-2">
             <div class="w-100">
-              <h6 class="font-medium"><%= link_to "#{comment.user.username}", user_path(comment.user.id) %></h6>
-                <span><%= comment.body %> </span>
+              <h6 class="h6 font-medium"><%= link_to "#{comment.user.username}", user_path(comment.user.id) %></h6>
+                <span class=""><%= comment.body %> </span>
                   <div class="comment-footer">
-                    <span class="text-muted float-right">
+                    <span class="d-flex justify-content-end">
+                    <%= link_to 'Delete', article_comment_path(@article, comment), method: :delete, data: { confirm: 'Are you sure?' }, :class => "mb-2 btn btn-sm btn-outline-secondary" %>
+                    </span>
+                    <span class="text-muted d-flex justify-content-end">
                       <%= "#{comment.created_at.strftime("%b %d, %Y")}" %>
                     </span>
                   </div>
-                    <%= link_to 'Delete', article_comment_path(@article, comment), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-outline-secondary" %>
                 </div>
         </div>
         <% end %>

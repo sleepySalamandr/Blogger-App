@@ -1,29 +1,30 @@
 
 
-<div class="all-links mb-2">
+<!-- <div class="all-links"> -->
   <h1><a href="#" class="blog-header-logo text-dark center"> <%= "#{@user.blog_title}" %></a></h1>
   <h3><%= "#{@user.about_me}" %></h3>
-
+  <!-- <div class="mt-5 mb-2 mr-5 d-flex justify-content-end"> -->
     <% if current_user.followees.include?(@user) %>
-        <h6><%= button_to "Unfollow", unfollow_user_path, method: "POST", :class => "btn btn-outline-secondary strong" %></h6>
+
+        <h6 class="mt-5 mb-2 mr-5 d-flex justify-content-end" ><%= button_to "Unfollow", unfollow_user_path, method: "POST", :class => "btn btn-outline-secondary strong" %></h6>
     <% else %>
-        <h6><%= button_to "Follow", follow_user_path, method: "POST", :class => "btn btn-outline-secondary strong"  %></h6>
+        <h6 class="mt-5 mb-2 mr-5 d-flex justify-content-end"><%= button_to "Follow", follow_user_path, method: "POST", :class => "btn btn-outline-secondary strong"  %></h6>
     <% end%>
-    <%= link_to 'Followers', user_path(@user) %>
-    <%= link_to 'Following', unfollow_user_path(@user)%>
-    <br>
-</div>
+
+    <!-- </div> -->
+<!-- </div> -->
 
 <!-- Create a loop to loop through each article and display title, created date and 3 lines and thumbnail image -->
 <div class="container">
-<div class="card-columns">
-<% @user.articles.each do |article|%>
-    <div class="card border-none">
-<%= image_tag article.image, :class => " eed-img card-img-top text-center" if article.image.present?%>
-<h4 class="card-title mt-2"><%= link_to "#{article.title}", article%></h4>
-<p class="card-body"><%= truncate "#{article.body}", length: 100 %></p>
-<p class="strong card-body">Published:  <%= "#{article.created_at.strftime("%b %d, %Y")}" %> </p>
+  <div class="card-columns p-2 mt-2">
+    <% @user.articles.each do |article|%>
+        <div class="card border-none p-2">
+          <%= image_tag article.image, :class => " eed-img card-img-top text-center" if article.image.present?%>
+          <h4 class="h4 pb-2"><%= link_to "#{article.title}", article%></h4>
+          <p class="h6 pb-4"><%= truncate "#{article.body}", length: 100 %></p>
+          <p class="h6">Published:  <%= "#{article.created_at.strftime("%b %d, %Y")}" %> </p>
+      </div>
+  <% end %>
+  </div>
 </div>
-<% end %>
-</div>
-</div>
+  <h6 class="h6"><%= @user.followers.count if @user.followers.present?%> subscribers.</h6>

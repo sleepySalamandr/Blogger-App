@@ -44,6 +44,7 @@ end
   def destroy
       article = Article.find params[:id]
     if (@current_user.id) == article.user_id
+      article.comments.destroy_all
       article.destroy
     end
     redirect_to articles_path
