@@ -11,12 +11,12 @@
 <% end %>
 </div>
 
-<div class="card-columns">
+<div class="card-columns container-box p-2">
 <%  Article.all.order("created_at DESC").each do |article| %>
 <div class="col mb-4">
   <div class="card">
-    <%= image_tag article.image, :class => "card-img-top centre" if article.image.present?%>
-    <h5 class="card-title centre"><%= link_to "#{article.title}", article%></h5>
+    <%= image_tag article.image, :class => "feed-img card-img-top centre" if article.image.present?%>
+    <h5 class="card-title"><%= link_to "#{article.title}", article%></h5>
     <p class="card-text">By <%= link_to "#{article.user.username}", user_path(article.user.id)%></p>
     <p class="card-text"><%= "#{article.created_at.strftime("%b %d, %Y")}" %></p>
     <p class="card-text"><%= truncate "#{article.body}", length: 75 %></p>

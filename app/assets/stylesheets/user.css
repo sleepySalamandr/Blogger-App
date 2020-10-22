@@ -11,8 +11,8 @@ body {
   max-width: 25%;
 } */
 
-img {
-  max-width: 25%;
+.feed-img {
+  max-width: 100%;
 }
 
 .feature {

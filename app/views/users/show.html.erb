@@ -16,16 +16,13 @@
 
 <!-- Create a loop to loop through each article and display title, created date and 3 lines and thumbnail image -->
 <div class="container">
-<div class="row mb-2">
+<div class="card-columns">
 <% @user.articles.each do |article|%>
-<!-- <div class="col-sm-6"> -->
-<!-- <div class="card"> -->
-  <div class="col-md-6">
-<%= image_tag article.image if article.image.present?%>
-    <!-- <div class="card-body"> -->
-<h4><%= link_to "#{article.title}", article%></h4>
-<p><%= truncate "#{article.body}", length: 100 %></p>
-<p class="strong">Published:  <%= "#{article.created_at.strftime("%b %d, %Y")}" %> </p>
+    <div class="card">
+<%= image_tag article.image, :class => " eed-img card-img-top text-center" if article.image.present?%>
+<h4 class="card-title"><%= link_to "#{article.title}", article%></h4>
+<p class="card-body"><%= truncate "#{article.body}", length: 100 %></p>
+<p class="strong card-body">Published:  <%= "#{article.created_at.strftime("%b %d, %Y")}" %> </p>
 </div>
 <% end %>
 </div>
