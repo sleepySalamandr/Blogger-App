@@ -2,6 +2,7 @@
 
 
 <div class="container">
+  <div class="mb-2 mt-2">
 <h1>Welcome to Informative.
 </h1>
 <p>Is an open article sharing platform where users can share their voice on any topic, access dynamic content and connect with people with shared interests.</p>
@@ -10,12 +11,13 @@
 <p>You are currently logged in as <%= current_user.email %></p>
 <% end %>
 </div>
-
-<div class="card-columns container-box p-2">
+</div>
+<div class="container-box">
+<div class="card-columns p-2 mt-3">
 <%  Article.all.order("created_at DESC").each do |article| %>
 <div class="col mb-4">
-  <div class="card">
-    <%= image_tag article.image, :class => "feed-img card-img-top centre" if article.image.present?%>
+  <div class="card border-none p-2">
+    <%= image_tag article.image, :class => "card feed-img centre" if article.image.present?%>
     <h5 class="card-title"><%= link_to "#{article.title}", article%></h5>
     <p class="card-text">By <%= link_to "#{article.user.username}", user_path(article.user.id)%></p>
     <p class="card-text"><%= "#{article.created_at.strftime("%b %d, %Y")}" %></p>
@@ -23,5 +25,6 @@
   </div>
   </div>
 <% end %>
+</div>
 </div>
 </body>

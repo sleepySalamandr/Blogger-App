@@ -1,6 +1,6 @@
 body {
   color:  #343a40;
-  font-family: 'Noto Serif TC', serif;
+  /* font-family: 'Noto Serif TC', serif; */
 }
 
 .yield-container {
@@ -21,17 +21,17 @@ body {
 
 a:hover {
 text-decoration: none;
-  color:  #343a40;
+  color:  lightgrey;
 }
 a:active {
 text-decoration: none;
 }
 
 a {
-  color:  #343a40;
+  color: #343a40;
 }
 
-h1, h2, h3, h4 {
+h1 {
   font-family: 'Playfair Display', serif;
 }
 

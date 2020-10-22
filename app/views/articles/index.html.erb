@@ -1,13 +1,13 @@
 
-<h1 class="px-2 mb-5"><a href="#">I.</a></h1>
+<h1 class="px-2 mb-5"><a href="#">Informative.</a></h1>
 <div class="container ">
   <div class="card-columns">
     <% if current_user.followees.present? %>
     <%   current_user.followees.each do |user| %>
 
     <%    user.articles.each do |article| %>
-    <div class="card">
-      <div class="col-mb-4">
+    <div class="card border-none">
+      <div class="col-mb-4 p-2">
         <%= image_tag article.image, :class => "feed-img card-img-top text-center" if article.image.present?%>
         <h4 class="card-title"><%= link_to "#{article.title}", article%></h4>
         <p class="card-text">By <%= link_to "#{article.user.username}", user_path(article.user.id)%></p>
