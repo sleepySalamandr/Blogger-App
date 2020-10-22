@@ -1,17 +1,19 @@
 
 <h1 class="px-2 mb-5"><a href="#">I.</a></h1>
 <div class="container ">
-  <div class="row mb-2">
+  <div class="card-columns">
     <% if current_user.followees.present? %>
     <%   current_user.followees.each do |user| %>
 
     <%    user.articles.each do |article| %>
-      <div class="col-md-6">
-        <%= image_tag article.image, :class => "text-center" if article.image.present?%>
-        <h4><%= link_to "#{article.title}", article%></h4>
-        <p>By <%= link_to "#{article.user.username}", user_path(article.user.id)%></p>
-        <p><%= "#{article.created_at.strftime("%b %d, %Y")}" %></p>
-        <p><%= truncate "#{article.body}", length: 75 %></p>
+    <div class="card">
+      <div class="col-mb-4">
+        <%= image_tag article.image, :class => "card-img-top text-center" if article.image.present?%>
+        <h4 class="card-title"><%= link_to "#{article.title}", article%></h4>
+        <p class="card-text">By <%= link_to "#{article.user.username}", user_path(article.user.id)%></p>
+        <p class="card-text"><%= "#{article.created_at.strftime("%b %d, %Y")}" %></p>
+        <p class="card-text"><%= truncate "#{article.body}", length: 75 %></p>
+      </div>
       </div>
     <% end %>
 <% end %>
